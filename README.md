@@ -31,7 +31,7 @@ EduSpider是一个用Java编写的简单教务爬虫，该爬虫能够模拟登�
 克隆本项目到本地：
 
 ```
-git clone https://github.com/janyu12311/EduSpider.git
+git clone https://github.com/CreaMakers/EduSpider.git
 ```
 
 进入Main.java取消你想要信息的注释，点击运行即可
