@@ -28,16 +28,16 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
         GetCookies getCookies = new GetCookies();
-        String cook = getCookies.getHeaderFromJW("学号", "密码");
+        String cook = getCookies.getHeaderFromJW("202308010135", "Jianyu@123");
         System.out.println(cook);
         System.out.println("==========================");
 
 
-//        GetCourseInfo getCourseInfo = new GetCourseInfo(cook);
-//        List<CourseInfo> courses = getCourseInfo.getData("8", "2024-2025-1");
-//        for (CourseInfo courseInfo : courses) {
-//            System.out.println(courseInfo);
-//        }
+        GetCourseInfo getCourseInfo = new GetCourseInfo(cook);
+        List<CourseInfo> courses = getCourseInfo.getData("8", "2024-2025-1");
+        for (CourseInfo courseInfo : courses) {
+            System.out.println(courseInfo);
+        }
 
 
 //        GetExamArrange getExamArrange = new GetExamArrange(cook);
