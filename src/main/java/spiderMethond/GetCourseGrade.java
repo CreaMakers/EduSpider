@@ -70,14 +70,22 @@ public class GetCourseGrade {
                     cols.get(1).text(),  // 开课学期
                     cols.get(3).text(),  // 课程名称
                     score,  // 成绩，可能是链接
-                    cols.get(6).text(),  // 成绩标识
-                    cols.get(7).text(),  // 学分
-                    cols.get(8).text(),  // 总学时
-                    cols.get(9).text(),  // 绩点
-                    cols.get(10).text(),  // 补重学期
-                    cols.get(11).text(),  // 考核方式
-                    cols.get(12).text(),  // 考试性质
-                    cols.get(13).text()  // 课程属性
+//                    cols.get(6).text(),  // 成绩标识
+//                    cols.get(7).text(),  // 学分
+//                    cols.get(8).text(),  // 总学时
+//                    cols.get(9).text(),  // 绩点
+//                    cols.get(10).text(),  // 补重学期
+//                    cols.get(11).text(),  // 考核方式
+//                    cols.get(12).text(),  // 考试性质
+//                    cols.get(13).text()  // 课程属性
+                    cols.get(7).text(),  // 成绩标识
+                    cols.get(8).text(),  // 学分
+                    cols.get(9).text(),  // 总学时
+                    cols.get(10).text(),  // 绩点
+                    cols.get(11).text(),  // 补重学期
+                    cols.get(12).text(),  // 考核方式
+                    cols.get(13).text(),  // 考试性质
+                    cols.get(14).text()  // 课程属性
             );
 
             // 将成绩对象添加到列表中
