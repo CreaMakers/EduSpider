@@ -41,9 +41,9 @@ public class GetCourseInfo {
 
         // 发送请求并获取响应
         res = con.execute();
-
         // 解析HTML
         Document doc = Jsoup.parse(res.body());
+//        System.out.println(doc);
         Elements courseDivs = doc.select("div.kbcontent");// 选择class为kbcontent的<div>元素
 
 
@@ -59,13 +59,23 @@ public class GetCourseInfo {
         // 存储课程信息
         List<CourseInfo> courseList = new ArrayList<>();
 
-        // 遍历所有找到的课程div元素
+// 遍历所有找到的课程div元素
         for (Element div : courseDivs) {
             String courseName = div.ownText().trim();  // 提取课程名称
 
             String teacher = null;
             String weeks = null;
             String classroom = null;
+            String weekday = null;
+
+            // 获取div的id并解析出星期和第几节课
+            String divId = div.attr("id");  // 获取div的id
+            if (divId != null && !divId.isEmpty()) {
+                String[] idParts = divId.split("-");
+                if (idParts.length >= 2) {
+                    weekday = idParts[idParts.length - 2];  // 倒数第二位表示星期
+                }
+            }
 
             // 查找课程的周次、教室、老师等信息
             Elements fonts = div.select("font");  // 获取所有<font>标签
@@ -84,10 +94,11 @@ public class GetCourseInfo {
 
             // 如果课程名称不为空，则创建courseInfo对象
             if (!courseName.isEmpty()) {
-                CourseInfo course = new CourseInfo(courseName, teacher, weeks, classroom);
+                CourseInfo course = new CourseInfo(courseName, teacher, weeks, classroom, weekday);
                 courseList.add(course);  // 将课程添加到列表中
             }
         }
+
 
 
 

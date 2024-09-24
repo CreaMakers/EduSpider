@@ -28,7 +28,7 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
         GetCookies getCookies = new GetCookies();
-        String cook = getCookies.getHeaderFromJW("学号", "密码");
+        String cook = getCookies.getHeaderFromJW("202308010135", "Jianyu@123");
         System.out.println(cook);
         System.out.println("==========================");
 
@@ -46,12 +46,12 @@ public class Main {
 //            System.out.println(examArrange);
 //        }
 
-//
-//        GetCourseGrade getCourseGrade = new GetCourseGrade(cook);
-//        List<CourseGrade> courseGrades = getCourseGrade.getData("2023-2024-2");
-//        for (CourseGrade courseGrade : courseGrades) {
-//            System.out.println(courseGrade);
-//        }
+
+        GetCourseGrade getCourseGrade = new GetCourseGrade(cook);
+        List<CourseGrade> courseGrades = getCourseGrade.getData("2023-2024-2");
+        for (CourseGrade courseGrade : courseGrades) {
+            System.out.println(courseGrade);
+        }
 
 
     }
