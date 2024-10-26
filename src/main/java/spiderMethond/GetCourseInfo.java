@@ -2,6 +2,10 @@ package spiderMethond;
 
 import infoClass.CourseInfo;
 import infoClass.ExamArrange;
+import okhttp3.Headers;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
 import org.jsoup.Connection;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -17,14 +21,28 @@ import java.util.Map;
 // 获取课表
 public class GetCourseInfo {
 
+    //从教务系统获取code的url
+    private static final String GET_CODE_URL = "http://xk.csust.edu.cn/Logon.do?method=logon&flag=sess";
     // 教务系统课表URL
     private final String url = "http://xk.csust.edu.cn/jsxsd/xskb/xskb_list.do";
     private  String cookie;
     private Connection con;
     private Connection.Response res;
 
-    public GetCourseInfo(String cookies) {
-        this.cookie = cookies;
+    public GetCourseInfo(String cookies) throws IOException {
+        // 将传入的 cookies 与 getJwCode()[2] 拼接
+        String combinedCookies = cookies;
+
+        // 使用正则表达式提取 "JSESSIONID" 和 "SERVERID_jsxsd" 相关的部分
+        StringBuilder retainedCookies = new StringBuilder();
+        java.util.regex.Matcher matcher = java.util.regex.Pattern.compile("(JSESSIONID=[^;]*|SERVERID_jsxsd=[^;]*)").matcher(combinedCookies);
+        while (matcher.find()) {
+            // 添加每个匹配到的部分，并加上分号分隔
+            retainedCookies.append(matcher.group()).append("; ");
+        }
+
+        // 去除末尾多余的 "; " 并将结果赋值给 this.cookie
+        this.cookie = retainedCookies.toString().trim();
     }
 
     // 获取课表数据

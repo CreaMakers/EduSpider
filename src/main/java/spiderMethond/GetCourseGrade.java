@@ -13,6 +13,8 @@ import java.util.List;
 
 public class GetCourseGrade {
 
+    //从教务系统获取code的url
+    private static final String GET_CODE_URL = "http://xk.csust.edu.cn/Logon.do?method=logon&flag=sess";
     // 成绩查询的URL
     private final String url = "http://xk.csust.edu.cn/jsxsd/kscj/cjcx_list";  // 正确的URL地址
     private final String cookie;  // Cookie 字符串
