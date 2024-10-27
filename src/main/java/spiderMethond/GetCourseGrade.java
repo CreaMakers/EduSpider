@@ -21,7 +21,18 @@ public class GetCourseGrade {
 
     // 构造函数，接受 Cookie 作为 String 类型
     public GetCourseGrade(String cookie) {
-        this.cookie = cookie;
+        // 将传入的 cookies 与 getJwCode()[2] 拼接
+        String combinedCookies = cookie;
+
+        // 使用正则表达式提取 "JSESSIONID" 和 "SERVERID_jsxsd" 相关的部分
+        StringBuilder retainedCookies = new StringBuilder();
+        java.util.regex.Matcher matcher = java.util.regex.Pattern.compile("(JSESSIONID=[^;]*|SERVERID_jsxsd=[^;]*)").matcher(combinedCookies);
+        while (matcher.find()) {
+            // 添加每个匹配到的部分，并加上分号分隔
+            retainedCookies.append(matcher.group()).append("; ");
+        }
+
+        this.cookie = retainedCookies.toString().trim();
     }
 
     // 获取成绩数据

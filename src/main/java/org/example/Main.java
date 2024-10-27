@@ -32,7 +32,7 @@ public class Main {
         System.out.println(cook);
         System.out.println("==========================");
 
-
+//
 //        GetCourseInfo getCourseInfo = new GetCourseInfo(cook);
 //        List<CourseInfo> courses = getCourseInfo.getData("8", "2024-2025-1");
 //        for (CourseInfo courseInfo : courses) {
@@ -46,13 +46,13 @@ public class Main {
 //            System.out.println(examArrange);
 //        }
 
-
-        GetCourseGrade getCourseGrade = new GetCourseGrade(cook);
-        List<CourseGrade> courseGrades = getCourseGrade.getData("2023-2024-2");
-        for (CourseGrade courseGrade : courseGrades) {
-            System.out.println(courseGrade);
-        }
-
+//
+//        GetCourseGrade getCourseGrade = new GetCourseGrade(cook);
+//        List<CourseGrade> courseGrades = getCourseGrade.getData("2023-2024-2");
+//        for (CourseGrade courseGrade : courseGrades) {
+//            System.out.println(courseGrade);
+//        }
+//
 
     }
 }
